@@ -1,0 +1,26 @@
+<p>
+  <label><%= l('redmine_subwikifiles.label_enabled') %></label>
+  <%= check_box_tag 'settings[enabled]', 1, @settings['enabled'] %>
+  <br>
+  <em class="info"><%= l('redmine_subwikifiles.help_enabled') %></em>
+</p>
+
+<p>
+  <label><%= l('redmine_subwikifiles.label_base_path') %></label>
+  <%= text_field_tag 'settings[base_path]', @settings['base_path'], size: 80 %>
+  <br>
+  <em class="info"><%= l('redmine_subwikifiles.help_base_path') %></em>
+</p>
+
+
+<p>
+  <label><%= l('redmine_subwikifiles.label_conflict_strategy') %></label>
+  <%= select_tag 'settings[conflict_strategy]', 
+      options_for_select([
+        [l('redmine_subwikifiles.label_conflict_strategy_file_wins'), 'file_wins'],
+        [l('redmine_subwikifiles.label_conflict_strategy_db_wins'), 'db_wins'],
+        [l('redmine_subwikifiles.label_conflict_strategy_manual'), 'manual']
+      ], @settings['conflict_strategy']) %>
+  <br>
+  <em class="info"><%= l('redmine_subwikifiles.help_conflict_strategy') %></em>
+</p>
